@@ -7,7 +7,7 @@ import re
 
 #Steine werden am Anfang des Spiels abwechselnd gesetzt
 def setStones(g):
-    while(g.blackStones < 3 and g.whiteStones < 3):
+    while(g.blackStones < 9 and g.whiteStones < 9):
         setStone(states.States.BLACK, g)
         setStone(states.States.WHITE, g)
 
@@ -23,7 +23,7 @@ def setStone(color, g):
     
     
 def moveStones(g):
-    while(g.blackStones > 1 and g.whiteStones > 1):
+    while(g.blackStones > 2 and g.whiteStones > 2):
         moveStone(states.States.BLACK, g)
         #gibt es durch den Zug eine mülhle und muss in der Folge 1 Stein entfernt werden?
         mills = hasMill(states.States.BLACK, g)
@@ -76,9 +76,11 @@ def hasMill(color, g):
 
 #übergebene Farbe wird als String ausgegeben
 def colorToString(color):
+    #print("The color is: " + color)
+    #print("The enum is: " + states.States.BLACK)
     if(color == states.States.BLACK):
         colorString = "Schwarz"
-    if(color == states.States.WHITE):
+    elif(color == states.States.WHITE):
         colorString = "Weiß"
     else:
         #Exception schmeißen!!!
