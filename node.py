@@ -17,3 +17,4 @@ class Node:
             if(n == candidat):
                 return True
         return False
+            
